@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results of Heart Disease Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="gradient"></div>
+<h1>Results of Prediction</h1>
+<div>
+    {{ results_html|safe }}
+</div>
+<a href="/download" class="btn btn-download" download="prediction_result.csv">Download Result</a>
+</body>
+</html>

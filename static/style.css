@@ -1,0 +1,180 @@
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.gradient {
+  position: fixed;
+  top: 1;
+  left: 1;
+  right: 1;
+  bottom: 1;
+  background-image: linear-gradient(hsl(1, 82%, 50%), hsl(242, 82%, 57%));
+  animation: rotate 40s cubic-bezier(0.8, 0.2, 0.2, 0.8) infinite; /* Increased duration to 40s */
+  z-index: -1;
+  width: var(--size);
+  height: var(--size);
+  filter: blur(calc(var(--size) / 5));
+  cubic-bezier(0.8, 0.2, 0.2, 0.8);
+}
+
+@media (min-width: 720px) {
+  .gradient {
+    --size: 500px;
+  }
+}
+
+body {
+  background-color: #fcfefe;
+  position: relative;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* This is just to transition when you change the viewport size. */
+* {
+  transition: all 0.25s ease-out;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+h1 {
+    text-align: center;
+    color: #0056b3;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #0056b3;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+input[type="submit"]:hover {
+    background-color: #004494;
+    transition: background-color 0.5s;
+}
+#prediction_result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa; /* світлий фон для виділення */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center; /* вирівнювання тексту по центру */
+    color: #333; /* колір тексту */
+    font-size: 20px; /* розмір шрифту для результату */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Стилі для таблиці */
+table {
+    width: 80%; /* Задає ширину таблиці */
+    margin: 20px auto; /* Центрує таблицю на сторінці з відступами зверху та знизу */
+    border-collapse: separate; /* Важливо встановити separate для коректної роботи border-radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додає тінь для піднятого ефекту */
+    background-color: #ffffff; /* Білий фон для контрасту */
+    text-align: left; /* Вирівнювання тексту по лівому краю */
+    border-radius: 5px;
+}
+
+th, td {
+    padding: 12px 15px; /* Відступи всередині клітинок */
+    border-bottom: 1px solid #dddddd; /* Горизонтальні лінії між рядками */
+}
+
+th {
+    background-color: #f2f2f2; /* Сірий фон для заголовків таблиці */
+    color: #333333; /* Темний колір тексту для заголовків */
+    font-weight: bold; /* Жирний шрифт для заголовків */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+tr:hover {
+    background-color: #f5f5f5; /* Зміна фону при наведенні курсору на рядок */
+}
+
+tr:last-child td {
+    border-bottom: none; /* Видалення лінії знизу останнього рядка */
+}
+
+/* Заокруглення нижніх кутів останнього рядка */
+tr:last-child td:first-child {
+    border-bottom-left-radius: 5px; /* Заокруглення лівого нижнього кута */
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 5px; /* Заокруглення правого нижнього кута */
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #0056b3;
+    color: white; /* Білий текст */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.btn-download:hover {
+    background-color: #004494;
+}
+
+.high-risk {
+    background-color: #ff6347; /* Томатний червоний */
+    color: white; /* Білий текст */
+}
+
+.low-risk {
+    background-color: #90ee90; /* Світло-зелений */
+    color: black; /* Чорний текст */
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="gradient"></div>
+<form action="/predict" method="post">
+    <h1>Heart Disease Prediction Form</h1>
+    <div class="form-group">
+        <label for="Age">Age:</label>
+        <input type="text" id="Age" name="Age">
+    </div>
+    <div class="form-group">
+        <label for="Sex">Sex (M/F):</label>
+        <input type="text" id="Sex" name="Sex">
+    </div>
+    <div class="form-group">
+        <label for="ChestPainType">Chest Pain Type (ATA/NAP/ASY):</label>
+        <input type="text" id="ChestPainType" name="ChestPainType">
+    </div>
+    <div class="form-group">
+        <label for="RestingBP">Resting Blood Pressure:</label>
+        <input type="text" id="RestingBP" name="RestingBP">
+    </div>
+    <div class="form-group">
+        <label for="Cholesterol">Cholesterol:</label>
+        <input type="text" id="Cholesterol" name="Cholesterol">
+    </div>
+    <div class="form-group">
+        <label for="FastingBS">Fasting Blood Sugar > 120 mg/dl (1 if true; 0 if false):</label>
+        <input type="text" id="FastingBS" name="FastingBS">
+    </div>
+    <div class="form-group">
+        <label for="RestingECG">Resting Electrocardiographic Results (Normal/ST/HT):</label>
+        <input type="text" id="RestingECG" name="RestingECG">
+    </div>
+    <div class="form-group">
+        <label for="MaxHR">Maximum Heart Rate Achieved:</label>
+        <input type="text" id="MaxHR" name="MaxHR">
+    </div>
+    <div class="form-group">
+        <label for="ExerciseAngina">Exercise Induced Angina (Y/N):</label>
+        <input type="text" id="ExerciseAngina" name="ExerciseAngina">
+    </div>
+    <div class="form-group">
+        <label for="Oldpeak">ST Depression Induced by Exercise Relative to Rest:</label>
+        <input type="text" id="Oldpeak" name="Oldpeak">
+    </div>
+    <div class="form-group">
+        <label for="ST_Slope">The Slope of the Peak Exercise ST Segment (Up/Flat/Down):</label>
+        <input type="text" id="ST_Slope" name="ST_Slope">
+    </div>
+    <input type="submit" value="Predict">
+</form>
+
+<div id="prediction_result"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $("#prediction_result").hide();
+        $("#predictionForm").submit(function(event) {
+            event.preventDefault(); // Зупиняємо стандартну відправку форми
+            var formData = $(this).serialize(); // Серіалізуємо дані форми
+
+            $.post('/predict', formData, function(data) {
+                window.location.href = "/results"; // Перенаправлення на нову сторінку з результатами
+            });
+        });
+    });
+
+</script>
+
+</body>
+</html>
